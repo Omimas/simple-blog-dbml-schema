@@ -1,110 +1,115 @@
-# 📦 Simple Blog DBML Schema
+# 🧠 SQL Toolkit: All-in-One Systems
 
-A clean and minimal database schema for a basic blog system written in **DBML (Database Markup Language)**.
+This project is a complete **SQL learning and utility toolkit** that combines multiple real-world database systems into a single file.
 
-This project is designed for learning database design, prototyping, and easy conversion to SQL or ORM tools.
-
----
-
-## 📌 Overview
-
-This schema models a simple blog structure with:
-
-- Users
-- Posts
-- One-to-many relationship between users and posts
-
-Fully compatible with **dbdiagram.io**.
+It demonstrates how different systems (logging, tasks, finance, caching, A/B testing, data cleaning, and search) can coexist in one SQL environment.
 
 ---
 
-## 🧱 Database Structure
+## 📌 Systems Included
 
-### 👤 Users Table
+### 1. 📊 Log Tracking System
+Tracks system events such as login attempts and server errors.
 
-Stores information about system users.
+### 2. ✅ Todo System
+Simple task manager with priority and completion status.
 
-- `id` → Primary key
-- `username` → Username (max 50 characters)
-- `role` → User role (admin, user, etc.)
-- `age` → Must be greater than 0
+### 3. 💰 Finance System
+Stores income and expenses with category tracking.
 
----
+### 4. ⚡ Cache System
+Basic key-value caching with expiration dates.
 
-### 📝 Posts Table
+### 5. 🧪 A/B Testing System
+Stores user variant assignments for experiments.
 
-Stores blog posts created by users.
+### 6. 🧹 Data Cleaning System
+Handles user data and removes invalid records (NULL emails).
 
-- `id` → Primary key
-- `title` → Post title (max 50 characters)
-- `body` → Post content
-- `user_id` → Author reference (foreign key)
-- `status` → Post status (draft, published, etc.)
-
----
-
-## 🔗 Relationship
-
-- One user can have multiple posts
-- Each post belongs to one user
-- posts.user_id > users.id
+### 7. 🔎 Search System
+Simple full-text search over documents.
 
 ---
 
-## 🚀 Usage
+## 📦 Database Structure
 
-Use this schema with:
+All tables are created using standard SQL:
 
-- dbdiagram.io
-- SQL generators
-- ORM tools (Prisma, Sequelize, TypeORM)
+- logs
+- tasks
+- transactions
+- cache
+- experiments
+- users
+- docs
 
-DBML Docs: https://dbml.dbdiagram.io/docs
+Each section includes:
+- Table creation
+- Sample data insertion
+- Example analytics queries
+
+---
+
+## 📈 Analytics Queries
+
+The toolkit includes built-in reporting queries:
+
+- Log level distribution
+- Task prioritization
+- Finance summaries (income vs expense)
+- A/B test distribution results
+- Cache filtering (valid entries only)
+- Data cleaning (removal of invalid users)
+- Full-text search simulation
+
+---
+
+## 🚀 How to Use
+
+### 1. Run the SQL file in any SQL engine:
+
+Compatible with:
+- SQLite
+- PostgreSQL (minor adjustments may be needed)
+- MySQL (minor adjustments may be needed)
+
+### 2. Execute section by section:
+
+You can run each system independently or as a full pipeline.
 
 ---
 
 ## 🎯 Purpose
 
-- Learn database design
-- Build clean schema structure
-- Prototype blog systems
-- Convert DBML → SQL / ORM
+This project is designed for:
 
- // =========================================
-// 📦 Simple Blog Database Schema
-// =========================================
-// A minimal blog system using DBML format
-// =========================================
+- SQL learning
+- Practice of multi-system database design
+- Analytics query understanding
+- Real-world data modeling scenarios
+- Portfolio / GitHub showcase
 
+---
 
-// 👤 Users Table
-Table users {
-  id integer [primary key]
+## 🧠 Key Features
 
-  username varchar(50)
-  role varchar(50)
+- Multiple independent systems in one file
+- Realistic sample datasets
+- Built-in analytics queries
+- Beginner-friendly structure
+- Production-style SQL organization
 
-  age integer [check: `age > 0`]
-}
+---
 
+## 🏁 Summary
 
-// 📝 Posts Table
-Table posts {
-  id integer [primary key]
+This toolkit demonstrates how SQL can be used not just for storage, but also for:
 
-  title varchar(50)
-  body text [note: 'Content of the post']
+- Monitoring systems
+- Analytics
+- Caching
+- Experiment tracking
+- Data cleaning
+- Search functionality
 
-  user_id integer
-  status varchar(50)
-}
-
-
-// 🔗 Relationship
-// One user → many posts
-Ref: posts.user_id > users.id
-
-simple-blog-dbml-schema/
-│
-├── README.md
-└── schema.dbml
+---
